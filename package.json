@@ -1,26 +1,75 @@
 {
-  "name": "eslint-config-airbnb-typescript",
-  "version": "0.0.0-development",
+  "name": "@kesills/eslint-config-airbnb-typescript",
+  "version": "19.0.0",
   "description": "Airbnb's ESLint config with TypeScript support",
-  "license": "MIT",
-  "author": "Matt Turnbull <matt@iamturns.com> (https://iamturns.com)",
-  "homepage": "https://github.com/iamturns/eslint-config-airbnb-typescript",
+  "keywords": [
+    "airbnb",
+    "config",
+    "eslint",
+    "eslintconfig",
+    "typescript"
+  ],
+  "homepage": "https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript",
+  "bugs": {
+    "url": "https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iamturns/eslint-config-airbnb-typescript.git"
+    "url": "https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript.git"
   },
-  "bugs": {
-    "url": "https://github.com/iamturns/eslint-config-airbnb-typescript/issues"
-  },
+  "license": "MIT",
+  "author": "Kenneth Sills <ksills.dev@gmail.com>",
+  "main": "index.js",
+  "files": [
+    "NOTICE",
+    "lib",
+    "base.js"
+  ],
   "scripts": {
-    "format": "run-s format:package format:prettier format:eslint",
-    "format:eslint": "eslint --fix ./ >/dev/null 2>&1 || true",
-    "format:package": "prettier-package-json --write",
-    "format:prettier": "prettier --write \"**/*.{js,json,md,yml}\" \".editorconfig\" \"LICENSE\"",
-    "lint": "eslint ./",
-    "pre-commit": "lint-staged",
-    "prepare": "husky",
-    "validate": "npm run lint"
+    "lint": "run-s lint:style lint:source lint:types",
+    "lint:fix": "run-s lint:style:fix lint:source:fix",
+    "lint:source": "eslint .",
+    "lint:source:fix": "eslint --fix .",
+    "lint:style": "prettier --check .",
+    "lint:style:fix": "prettier --write .",
+    "lint:types": "tsc",
+    "prepare": "husky"
+  },
+  "commitlint": {
+    "extends": "@commitlint/config-conventional"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "parserOpts": {
+      "referenceActions": [
+        "R4ND0M"
+      ],
+      "issuePrefixes": [
+        "Closes #",
+        "Close #"
+      ]
+    },
+    "preset": "conventionalcommits"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^10.1.7",
+    "@semantic-release/npm": "^12.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.1",
+    "conventional-changelog-conventionalcommits": "^8.0.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.29.1",
+    "husky": "9.1.5",
+    "npm-run-all2": "6.1.2",
+    "prettier": "3.2.5",
+    "prettier-plugin-packagejson": "^2.5.2",
+    "semantic-release": "^24.1.0",
+    "typescript": "5.3.3"
   },
   "peerDependencies": {
     "@stylistic/eslint-plugin": "^2.6.1",
@@ -28,35 +77,15 @@
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^15.0.0",
-    "eslint-config-airbnb-base": "^15.0.0"
+    "eslint-config-airbnb-base": "^15.0.0",
+    "typescript": "*"
   },
   "peerDependenciesMeta": {
     "eslint-config-airbnb": {
       "optional": true
+    },
+    "typescript": {
+      "optional": true
     }
-  },
-  "devDependencies": {
-    "doctoc": "2.2.1",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-import": "2.29.1",
-    "husky": "9.0.11",
-    "lint-staged": "15.2.2",
-    "npm-run-all2": "6.1.2",
-    "prettier": "3.2.5",
-    "prettier-package-json": "2.8.0",
-    "typescript": "5.3.3"
-  },
-  "keywords": [
-    "airbnb",
-    "config",
-    "es2015",
-    "es2016",
-    "es2017",
-    "es2018",
-    "eslint",
-    "eslintconfig",
-    "javascript",
-    "styleguide",
-    "typescript"
-  ]
+  }
 }
