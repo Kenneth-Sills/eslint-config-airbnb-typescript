@@ -19,14 +19,50 @@
     "base.js"
   ],
   "scripts": {
-    "format": "run-s format:package format:prettier format:eslint",
-    "format:eslint": "eslint --fix ./ >/dev/null 2>&1 || true",
-    "format:package": "prettier-package-json --write",
-    "format:prettier": "prettier --write \"**/*.{js,json,md,yml}\" \".editorconfig\" \"LICENSE\"",
-    "lint": "eslint ./",
-    "pre-commit": "lint-staged",
-    "prepare": "husky",
-    "validate": "npm run lint"
+    "lint": "run-s lint:style lint:source lint:types",
+    "lint:fix": "run-s lint:style:fix lint:source:fix",
+    "lint:source": "eslint .",
+    "lint:source:fix": "eslint --fix .",
+    "lint:style": "prettier --check .",
+    "lint:style:fix": "prettier --write .",
+    "lint:types": "tsc",
+    "prepare": "husky"
+  },
+  "commitlint": {
+    "extends": "@commitlint/config-conventional"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "parserOpts": {
+      "referenceActions": [
+        "R4ND0M"
+      ],
+      "issuePrefixes": [
+        "Closes #",
+        "Close #"
+      ]
+    },
+    "preset": "conventionalcommits"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^10.1.7",
+    "@semantic-release/npm": "^12.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.1",
+    "conventional-changelog-conventionalcommits": "^8.0.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.29.1",
+    "husky": "9.1.5",
+    "npm-run-all2": "6.1.2",
+    "prettier": "3.2.5",
+    "prettier-plugin-packagejson": "^2.5.2",
+    "semantic-release": "^24.1.0",
+    "typescript": "5.3.3"
   },
   "peerDependencies": {
     "@stylistic/eslint-plugin": "^2.6.1",
