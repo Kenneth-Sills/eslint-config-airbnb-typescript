@@ -1,11 +1,12 @@
-# eslint-config-airbnb-typescript
+# Typescript Compatible Airbnb Rules for ESLint
 
-[![Version](https://img.shields.io/npm/v/eslint-config-airbnb-typescript.svg?style=flat-square)](https://www.npmjs.com/package/eslint-config-airbnb-typescript?activeTab=versions) [![Downloads](https://img.shields.io/npm/dt/eslint-config-airbnb-typescript.svg?style=flat-square)](https://www.npmjs.com/package/eslint-config-airbnb-typescript) [![Last commit](https://img.shields.io/github/last-commit/iamturns/eslint-config-airbnb-typescript.svg?style=flat-square)](https://github.com/iamturns/eslint-config-airbnb-typescript/graphs/commit-activity) [![Build](https://img.shields.io/circleci/project/github/iamturns/eslint-config-airbnb-typescript/master.svg?style=flat-square)](https://circleci.com/gh/iamturns/eslint-config-airbnb-typescript) [![License](https://img.shields.io/github/license/iamturns/eslint-config-airbnb-typescript.svg?style=flat-square)](https://github.com/iamturns/eslint-config-airbnb-typescript/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/iamturns/eslint-config-airbnb-typescript/blob/master/CONTRIBUTING.md) [![Code of conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square)](https://github.com/iamturns/eslint-config-airbnb-typescript/blob/master/CODE_OF_CONDUCT.md)
+[![Version](https://img.shields.io/npm/v/@kesills/eslint-config-airbnb-typescript.svg?style=flat-square)](https://www.npmjs.com/package/@kesills/eslint-config-airbnb-typescript?activeTab=versions) [![Downloads](https://img.shields.io/npm/dm/@kesills/eslint-config-airbnb-typescript.svg?style=flat-square)](https://www.npmjs.com/package/@kesills/eslint-config-airbnb-typescript)
 
 Enhances [Airbnb's ESLint config](https://www.npmjs.com/package/eslint-config-airbnb) with TypeScript support.
+Forked from the generous work of [Matt Turnbull](https://github.com/iamturns/eslint-config-airbnb-typescript)!
 
 > [!WARNING]
-> We currently **do not** support ESLint v9 or above. Please see issue #331 to track progress.
+> We currently **do not** support ESLint v9 or above. Please see issue #15 to track progress.
 
 ## Setup
 
@@ -14,7 +15,7 @@ Enhances [Airbnb's ESLint config](https://www.npmjs.com/package/eslint-config-ai
 Start by installing both ESLint and Typescript in your project. Afterwards, you can install this config through your favorite package manager normally:
 
 ```sh
-npm install -D eslint-config-airbnb-typescript
+npm install -D @kesills/eslint-config-airbnb-typescript
 ```
 
 If you're using React, you'll also need to install the appropriate Airbnb rules separately:
@@ -44,7 +45,7 @@ Next, tell ESLint to extend from this configuration. And since we need to access
 
 #### Recommended - Flat Config
 
-Since we don't yet have first-class support for the new flat configuration format (see #307 for progress), [ESLint's compatability utility](https://www.npmjs.com/package/@eslint/eslintrc) is needed:
+Since we don't yet have first-class support for the new flat configuration format (see #14 for progress), [ESLint's compatability utility](https://www.npmjs.com/package/@eslint/eslintrc) is needed:
 
 ```sh
 npm install -D @eslint/eslintrc
@@ -62,11 +63,11 @@ const compat = new FlatCompat({
 export default [
   // Without React
   ...compat.extends('airbnb-base'),
-  ...compat.extends('airbnb-typescript/base'),
+  ...compat.extends('@kesills/airbnb-typescript/base'),
 
   // With React
   ...compat.extends('airbnb'),
-  ...compat.extends('airbnb-typescript'),
+  ...compat.extends('@kesills/airbnb-typescript'),
 
   // Either way
   {
@@ -89,11 +90,11 @@ module.exports = {
   extends: [
     // Without React
     'airbnb-base',
-    'airbnb-typescript/base'
+    '@kesills/airbnb-typescript/base'
 
     // With React
     'airbnb',
-    'airbnb-typescript'
+    '@kesills/airbnb-typescript'
   ],
   parserOptions: {
     projectService: true,
@@ -133,7 +134,7 @@ import typescriptPlugin from 'typescript-eslint';
 export default [
   ...compat.extends('airbnb-base'),
   ...compat.extends('airbnb/hooks'),
-  ...compat.extends('airbnb-typescript/base'),
+  ...compat.extends('@kesills/airbnb-typescript/base'),
   ...typescriptPlugin.configs.recommendedTypeChecked,
   ...typescriptPlugin.configs.stylisticTypeChecked,
   {
@@ -196,10 +197,10 @@ If you would like to enable this rule, then:
 
 ## Credits
 
-Authored and maintained by Matt Turnbull ([iamturns.com](https://iamturns.com) / [@iamturns](https://twitter.com/iamturns))
+Originally authored by Matt Turnbull. Forked and maintained by Kenneth Sills.
 
-A big thank you to all [contributors](https://github.com/iamturns/eslint-config-airbnb-typescript/graphs/contributors)!
+A big thank you to all [contributors](https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript/graphs/contributors)!
 
 ## License
 
-Open source [licensed as MIT](https://github.com/iamturns/eslint-config-airbnb-typescript/blob/master/LICENSE).
+Open source [licensed as MIT](./LICENSE).

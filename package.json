@@ -1,14 +1,17 @@
 {
-  "name": "eslint-config-airbnb-typescript",
-  "version": "0.0.0-development",
+  "name": "@kesills/eslint-config-airbnb-typescript",
+  "version": "19.0.0",
   "description": "Airbnb's ESLint config with TypeScript support",
-  "license": "MIT",
-  "author": "Matt Turnbull <matt@iamturns.com> (https://iamturns.com)",
-  "homepage": "https://github.com/iamturns/eslint-config-airbnb-typescript",
+  "homepage": "https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript",
+  "bugs": {
+    "url": "https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iamturns/eslint-config-airbnb-typescript.git"
+    "url": "https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript.git"
   },
+  "license": "MIT",
+  "author": "Kenneth Sills <ksills.dev@gmail.com>",
   "main": "index.js",
   "files": [
     "NOTICE",
@@ -52,14 +55,9 @@
   "keywords": [
     "airbnb",
     "config",
-    "es2015",
-    "es2016",
-    "es2017",
-    "es2018",
     "eslint",
     "eslintconfig",
-    "javascript",
-    "styleguide",
     "typescript"
   ]
+  }
 }
