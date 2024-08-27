@@ -70,10 +70,14 @@
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^15.0.0",
-    "eslint-config-airbnb-base": "^15.0.0"
+    "eslint-config-airbnb-base": "^15.0.0",
+    "typescript": "*"
   },
   "peerDependenciesMeta": {
     "eslint-config-airbnb": {
+      "optional": true
+    },
+    "typescript": {
       "optional": true
     }
   },
