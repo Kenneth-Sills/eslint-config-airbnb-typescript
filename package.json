@@ -9,9 +9,12 @@
     "type": "git",
     "url": "https://github.com/iamturns/eslint-config-airbnb-typescript.git"
   },
-  "bugs": {
-    "url": "https://github.com/iamturns/eslint-config-airbnb-typescript/issues"
-  },
+  "main": "index.js",
+  "files": [
+    "NOTICE",
+    "lib",
+    "base.js"
+  ],
   "scripts": {
     "format": "run-s format:package format:prettier format:eslint",
     "format:eslint": "eslint --fix ./ >/dev/null 2>&1 || true",
