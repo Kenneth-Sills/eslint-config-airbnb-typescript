@@ -1,6 +1,6 @@
 # Typescript Compatible Airbnb Rules for ESLint
 
-[![Version](https://img.shields.io/npm/v/@kesills/eslint-config-airbnb-typescript.svg?style=flat-square)](https://www.npmjs.com/package/@kesills/eslint-config-airbnb-typescript?activeTab=versions) [![Downloads](https://img.shields.io/npm/dm/@kesills/eslint-config-airbnb-typescript.svg?style=flat-square)](https://www.npmjs.com/package/@kesills/eslint-config-airbnb-typescript)
+[![semantic-release: conventional](https://img.shields.io/badge/semantic--release-conventional-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release) [![Version](https://img.shields.io/npm/v/@kesills/eslint-config-airbnb-typescript.svg?style=flat-square)](https://www.npmjs.com/package/@kesills/eslint-config-airbnb-typescript?activeTab=versions) [![Downloads](https://img.shields.io/npm/dm/@kesills/eslint-config-airbnb-typescript.svg?style=flat-square)](https://www.npmjs.com/package/@kesills/eslint-config-airbnb-typescript)
 
 Enhances [Airbnb's ESLint config](https://www.npmjs.com/package/eslint-config-airbnb) with TypeScript support.
 Forked from the generous work of [Matt Turnbull](https://github.com/iamturns/eslint-config-airbnb-typescript)!
@@ -188,19 +188,8 @@ If you would like to enable this rule, then:
 - Enable the rule within your config: `'import/no-unresolved': 'error'`
 - Install and configure the TypeScript import resolver: [eslint-import-resolver-typescript](https://www.npmjs.com/package/eslint-import-resolver-typescript)
 
-## Additional Documentation
-
-- [CHANGELOG.md](CHANGELOG.md)
-- [DEVELOPING.md](DEVELOPING.md)
-- [CONTRIBUTING.md](CONTRIBUTING.md)
-- [MAINTAINING.md](MAINTAINING.md)
-
 ## Credits
 
 Originally authored by Matt Turnbull. Forked and maintained by Kenneth Sills.
 
 A big thank you to all [contributors](https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript/graphs/contributors)!
-
-## License
-
-Open source [licensed as MIT](./LICENSE).
