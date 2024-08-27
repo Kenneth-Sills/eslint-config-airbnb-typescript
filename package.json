@@ -2,6 +2,13 @@
   "name": "@kesills/eslint-config-airbnb-typescript",
   "version": "19.0.0",
   "description": "Airbnb's ESLint config with TypeScript support",
+  "keywords": [
+    "airbnb",
+    "config",
+    "eslint",
+    "eslintconfig",
+    "typescript"
+  ],
   "homepage": "https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript",
   "bugs": {
     "url": "https://github.com/Kenneth-Sills/eslint-config-airbnb-typescript/issues"
@@ -80,24 +87,5 @@
     "typescript": {
       "optional": true
     }
-  },
-  "devDependencies": {
-    "doctoc": "2.2.1",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-import": "2.29.1",
-    "husky": "9.0.11",
-    "lint-staged": "15.2.2",
-    "npm-run-all2": "6.1.2",
-    "prettier": "3.2.5",
-    "prettier-package-json": "2.8.0",
-    "typescript": "5.3.3"
-  },
-  "keywords": [
-    "airbnb",
-    "config",
-    "eslint",
-    "eslintconfig",
-    "typescript"
-  ]
   }
 }
