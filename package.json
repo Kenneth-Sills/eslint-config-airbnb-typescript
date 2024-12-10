@@ -64,7 +64,7 @@
     "conventional-changelog-conventionalcommits": "^8.0.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.1",
-    "husky": "9.1.5",
+    "husky": "9.1.7",
     "npm-run-all2": "6.1.2",
     "prettier": "3.2.5",
     "prettier-plugin-packagejson": "^2.5.2",
