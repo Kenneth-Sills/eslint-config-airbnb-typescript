@@ -9,5 +9,6 @@ module.exports = {
       'error',
       { devDependencies: ['**/*.config.*', 'test/**/*'] },
     ],
+    'import/no-unresolved': 'off', // Doesn't support imports without a "main" field
   },
 };

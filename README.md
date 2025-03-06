@@ -54,20 +54,18 @@ npm install -D @eslint/eslintrc
 Then you'll want to set up your `eslint.config.js` something like this:
 
 ```js
-import { FlatCompat } from '@eslint/eslintrc';
+// Without React
+import airbnbTs from '@kesills/eslint-config-airbnb-typescript/base';
 
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-});
+// With React
+import airbnbTs from '@kesills/eslint-config-airbnb-typescript';
 
 export default [
   // Without React
-  ...compat.extends('airbnb-base'),
-  ...compat.extends('@kesills/airbnb-typescript/base'),
+  ...airbnbTs.configs.base,
 
   // With React
-  ...compat.extends('airbnb'),
-  ...compat.extends('@kesills/airbnb-typescript'),
+  ...airbnbTs.configs.react,
 
   // Either way
   {

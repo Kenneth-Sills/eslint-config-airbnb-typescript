@@ -19,16 +19,30 @@
   },
   "license": "MIT",
   "author": "Kenneth Sills <ksills.dev@gmail.com>",
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./base": {
+      "types": "./base.d.ts",
+      "default": "./base.js"
+    },
+    "./package.json": "./package.json"
+  },
   "main": "index.js",
   "files": [
     "NOTICE",
     "lib",
-    "base.js"
+    "base.js",
+    "index.d.ts",
+    "base.d.ts"
   ],
   "scripts": {
     "lint": "run-s lint:style lint:source lint:types",
     "lint:fix": "run-s lint:style:fix lint:source:fix",
-    "lint:source": "eslint .",
+    "lint:source": "ESLINT_USE_FLAT_CONFIG=false eslint -c .eslintrc.js .; eslint -c eslint.config.mjs .",
     "lint:source:fix": "eslint --fix .",
     "lint:style": "prettier --check .",
     "lint:style:fix": "prettier --write .",
@@ -54,6 +68,10 @@
     },
     "preset": "conventionalcommits"
   },
+  "dependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@types/eslint": "^8.56.12"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
@@ -64,9 +82,9 @@
     "@semantic-release/npm": "^12.0.1",
     "@semantic-release/release-notes-generator": "^14.0.1",
     "@types/eslint": "^8.56.12",
+    "@types/eslint-config-prettier": "^6.11.3",
     "conventional-changelog-conventionalcommits": "^8.0.0",
     "eslint-config-prettier": "10.1.1",
-    "eslint-plugin-import": "2.31.0",
     "husky": "9.1.7",
     "npm-run-all2": "7.0.2",
     "outdent": "^0.8.0",
@@ -74,7 +92,7 @@
     "prettier-plugin-packagejson": "^2.5.2",
     "semantic-release": "^24.1.0",
     "typescript": "5.8.3",
-    "vitest": "^3.1.1"
+    "vitest": "^3.1.2"
   },
   "peerDependencies": {
     "@stylistic/eslint-plugin": "^2.6.1",
@@ -83,6 +101,7 @@
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.31.0",
     "typescript": "*"
   },
   "peerDependenciesMeta": {
