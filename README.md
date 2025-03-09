@@ -150,27 +150,9 @@ export default [
 
 ### I use Prettier / StandardJS, how do I remove formatting rules?
 
-There are a couple of approaches to achieve this.
+You can add [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) to your ESLint config.
 
-#### Configuration
-
-Since the base Airbnb configs still use ESLint's legacy formatting rules, you can extend [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) to disable them. However, with ESLint [deprecating all formatting rules](https://eslint.org/blog/2023/10/deprecating-formatting-rules/) and [`typescript-eslint` outright removing them](https://typescript-eslint.io/users/what-about-formatting/), all our styling rules now originate from [ESLint Stylistic](https://eslint.style), which is not supported by the Prettier config (see upstream issue [#283](https://github.com/prettier/eslint-config-prettier/issues/283) to track progress).
-
-Therefore, you'll need to disable all these rules manually. Luckily, this is pretty easy with flat configurations:
-
-```js
-import stylistic from '@stylistic/eslint-plugin';
-
-export default [
-  // ...
-
-  {
-    rules: Object.fromEntries(
-      Object.keys(stylisticPlugin.configs['all-flat'].rules ?? {}).map((key) => [key, 'off']),
-    ),
-  },
-];
-```
+Due to ESLint [deprecating all formatting rules](https://eslint.org/blog/2023/10/deprecating-formatting-rules/) and [`typescript-eslint` outright removing them](https://typescript-eslint.io/users/what-about-formatting/), all our styling rules now originate from [ESLint Stylistic](https://eslint.style), and you must use at least [`eslint-config-prettier@10`](https://github.com/prettier/eslint-config-prettier/releases/tag/v10.0.0).
 
 #### Combined Tooling
 
