@@ -1,5 +1,6 @@
 {
   "include": ["**/*", "**/.*"],
+  "exclude": ["node_modules", "test/cases", "test/utils"],
   "compilerOptions": {
     "target": "es2020",
     "module": "commonjs",
