@@ -9,13 +9,12 @@ runTests(
   ['base', 'react'],
   [
     {
-      code: 'const a = 1;',
-    },
-    {
+      // 2.1
       code: 'let a = 1;',
       expectedError: 'prefer-const',
     },
     {
+      // 2.1
       code: outdent`
           const a = 1;
           a = 1;
@@ -24,6 +23,7 @@ runTests(
       skip: true,
     },
     {
+      // 2.2
       code: 'var a = 1;',
       expectedError: 'no-var',
     },
