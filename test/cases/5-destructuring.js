@@ -2,7 +2,7 @@ const outdent = require('outdent');
 const runTests = require('../utils/runner');
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#objects
+ * https://github.com/airbnb/javascript/tree/master?tab=readme-ov-file#destructuring
  */
 runTests(
   'destructuring',
@@ -27,7 +27,7 @@ runTests(
           const first = arr[0];
         `,
       expectedError: 'prefer-destructuring',
-      skip: true,
+      skip: true, // Disabled for VariableDeclarator arrays in airbnb-base: https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/es6.js#L125
     },
   ],
 );

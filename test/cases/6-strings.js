@@ -2,7 +2,7 @@ const outdent = require('outdent');
 const runTests = require('../utils/runner');
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#objects
+ * https://github.com/airbnb/javascript?tab=readme-ov-file#strings
  */
 runTests(
   'strings',
@@ -11,14 +11,12 @@ runTests(
     {
       // 6.1
       code: `const name = "Capt. Janeway";`,
-      expectedError: 'quotes',
-      skip: true,
+      expectedError: '@stylistic/quotes',
     },
     {
       // 6.1
       code: `const name = \`Capt. Janeway\`;`,
-      expectedError: 'quotes',
-      skip: true,
+      expectedError: '@stylistic/quotes',
     },
     {
       // 6.3

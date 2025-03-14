@@ -56,13 +56,11 @@ runTests(
     },
     {
       // 3.8
+      // Airbnb's example doesn't get caught by the rule
       code: outdent`
-          const original = { a: 1, b: 2 };
-          const copy = Object.assign(original, { c: 3 });
-          delete copy.a;
+          Object.assign({}, {foo: 'bar'});
         `,
       expectedError: 'prefer-object-spread',
-      skip: true,
     },
   ],
 );

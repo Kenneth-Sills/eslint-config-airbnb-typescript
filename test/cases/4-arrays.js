@@ -2,7 +2,7 @@ const outdent = require('outdent');
 const runTests = require('../utils/runner');
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#objects
+ * https://github.com/airbnb/javascript/tree/master?tab=readme-ov-file#arrays
  */
 runTests(
   'arrays',
