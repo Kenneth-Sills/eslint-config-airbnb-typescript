@@ -33,7 +33,8 @@
     "lint:style": "prettier --check .",
     "lint:style:fix": "prettier --write .",
     "lint:types": "tsc",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "node --test test/cases/*"
   },
   "commitlint": {
     "extends": "@commitlint/config-conventional"
