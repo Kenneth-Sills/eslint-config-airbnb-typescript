@@ -15,7 +15,7 @@ runTests(
           // ...
         }`,
       expectedError: 'id-length',
-      skip: true, // Removed in airbnb-base: https://github.com/airbnb/javascript/pull/569
+      skipReason: 'Removed in airbnb-base', // https://github.com/airbnb/javascript/pull/569
     },
     {
       // 23.2

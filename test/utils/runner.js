@@ -33,28 +33,27 @@ const runTests = (ruleGroup, configTypes, cases) => {
     describe(`${ruleGroup} rules`, () => {
       describe(`using ${configType} config`, () => {
         // eslint-disable-next-line no-restricted-syntax
-        for (const [index, { code, expectedError, skip }] of Object.entries(cases)) {
+        for (const [index, { code, expectedError, skipReason }] of Object.entries(cases)) {
           const expectedResult = expectedError ? 'fail' : 'pass';
           const testId = `${ruleGroup}-${index}`;
           const testName = `should ${expectedResult} for ${testId}`;
-          if (skip) {
-            it.skip(testName);
-          } else {
-            it(testName, async () => {
-              const filePath = setupCode(code, testId);
-              const results = await eslint.lintFiles(filePath);
-              const hasExpectedError = hasRuleError(expectedError, results);
-              if (expectedError) {
-                assert.strictEqual(
-                  hasExpectedError,
-                  true,
-                  `Expected error ${expectedError} for ${testId}`,
-                );
-              } else {
-                assert.strictEqual(hasExpectedError, false, `Expected no errors for ${testId}`);
-              }
-            });
-          }
+          it(testName, async (t) => {
+            if (skipReason) {
+              return t.skip(skipReason);
+            }
+            const filePath = setupCode(code, testId);
+            const results = await eslint.lintFiles(filePath);
+            const hasExpectedError = hasRuleError(expectedError, results);
+            if (expectedError) {
+              assert.strictEqual(
+                hasExpectedError,
+                true,
+                `Expected error ${expectedError} for ${testId}`,
+              );
+            } else {
+              assert.strictEqual(hasExpectedError, false, `Expected no errors for ${testId}`);
+            }
+          });
         }
       });
     });

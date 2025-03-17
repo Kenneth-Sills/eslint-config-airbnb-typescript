@@ -12,7 +12,7 @@ runTests(
       // 13.1
       code: 'superPower = new SuperPower();',
       expectedError: 'no-undef',
-      skip: true, // covered by typescript
+      skipReason: 'covered by typescript',
     },
     {
       // 13.2

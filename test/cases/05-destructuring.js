@@ -27,7 +27,7 @@ runTests(
           const first = arr[0];
         `,
       expectedError: 'prefer-destructuring',
-      skip: true, // Disabled for VariableDeclarator arrays in airbnb-base: https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/es6.js#L125
+      skipReason: 'Disabled for VariableDeclarator arrays in airbnb-base', // https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/es6.js#L125
     },
   ],
 );

@@ -30,7 +30,7 @@ runTests(
         }
       `,
       expectedError: 'no-dupe-class-members',
-      skip: true, // covered by typescript
+      skipReason: 'covered by typescript',
     },
     {
       // 9.7

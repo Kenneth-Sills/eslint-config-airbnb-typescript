@@ -20,7 +20,7 @@ runTests(
           a = 1;
         `,
       expectedError: 'no-const-assign',
-      skip: true, // covered by typescript
+      skipReason: 'covered by typescript',
     },
     {
       // 2.2

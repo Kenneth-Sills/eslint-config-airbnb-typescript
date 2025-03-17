@@ -16,7 +16,7 @@ runTests(
         }
       `,
       expectedError: 'func-style',
-      skip: true, // Disabled in airbnb-base: https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/style.js#L101
+      skipReason: 'Disabled in airbnb-base', // https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/style.js#L101
     },
     {
       // 7.1
