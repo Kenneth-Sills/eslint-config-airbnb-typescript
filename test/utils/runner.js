@@ -9,8 +9,8 @@ const reactConfig = require('./test-react-config');
 const baseESLint = new ESLint({ overrideConfig: baseConfig });
 const reactESLint = new ESLint({ overrideConfig: reactConfig });
 
-const setupCode = (code, testId) => {
-  const filePath = `test/temp/${testId}.ts`;
+const setupCode = (code, ruleGroup, testId) => {
+  const filePath = `test/temp/${ruleGroup}/${testId}.ts`;
   const dir = path.dirname(filePath);
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
@@ -35,13 +35,13 @@ const runTests = (ruleGroup, configTypes, cases) => {
         // eslint-disable-next-line no-restricted-syntax
         for (const [index, { code, expectedError, skipReason }] of Object.entries(cases)) {
           const expectedResult = expectedError ? 'fail' : 'pass';
-          const testId = `${ruleGroup}-${index}`;
+          const testId = `${index.padStart(2, '0')}-${expectedError ? expectedError.replaceAll('/', '-') : 'pass'}`;
           const testName = `should ${expectedResult} for ${testId}`;
           it(testName, async (t) => {
             if (skipReason) {
               return t.skip(skipReason);
             }
-            const filePath = setupCode(code, testId);
+            const filePath = setupCode(code, ruleGroup, testId);
             const results = await eslint.lintFiles(filePath);
             const hasExpectedError = hasRuleError(expectedError, results);
             if (expectedError) {
