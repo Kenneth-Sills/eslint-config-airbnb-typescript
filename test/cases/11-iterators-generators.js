@@ -37,7 +37,7 @@ runTests(
           return true;
         }
       `,
-      expectedError: 'generator-star-spacing',
+      expectedError: 'generator-star-spacing', // TODO: should use @stylistic/generator-star-spacing
     },
   ],
 );

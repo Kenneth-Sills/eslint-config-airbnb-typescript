@@ -41,7 +41,7 @@ runTests(
     {
       // 10.8
       code: `import {longNameA, longNameB, longNameC, longNameD, longNameE} from 'path';`,
-      expectedError: 'object-curly-newline',
+      expectedError: 'object-curly-newline', // TODO: should use @stylistic/object-curly-newline
     },
     {
       // 10.9
@@ -59,6 +59,6 @@ runTests(
         import baz from './baz/index.jsx';
       `,
       expectedError: 'import/extensions',
-    }
+    },
   ],
 );

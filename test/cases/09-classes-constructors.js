@@ -42,6 +42,6 @@ runTests(
         }
       `,
       expectedError: '@typescript-eslint/class-methods-use-this',
-    }
+    },
   ],
 );
