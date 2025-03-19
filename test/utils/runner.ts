@@ -1,15 +1,23 @@
-const { describe, it } = require('node:test');
-const { ESLint } = require('eslint');
-const assert = require('assert');
-const fs = require('fs');
-const path = require('path');
-const baseConfig = require('./test-base-config');
-const reactConfig = require('./test-react-config');
+import fs from 'fs';
+import path from 'path';
+import { describe, it, expect } from 'vitest';
+import { ESLint } from 'eslint';
+import { baseConfig, reactConfig } from './test-eslint-configs';
 
-const baseESLint = new ESLint({ overrideConfig: baseConfig });
-const reactESLint = new ESLint({ overrideConfig: reactConfig });
+const baseOptions: ESLint.LegacyOptions = {
+  baseConfig,
+  useEslintrc: false,
+};
 
-const setupCode = (code, ruleGroup, testId) => {
+const reactOptions: ESLint.LegacyOptions = {
+  baseConfig: reactConfig,
+  useEslintrc: false,
+};
+
+const baseESLint = new ESLint(baseOptions as never);
+const reactESLint = new ESLint(reactOptions as never);
+
+const setupCode = (code: string, ruleGroup: string, testId: string) => {
   const filePath = `test/temp/${ruleGroup}/${testId}.ts`;
   const dir = path.dirname(filePath);
   if (!fs.existsSync(dir)) {
@@ -20,15 +28,22 @@ const setupCode = (code, ruleGroup, testId) => {
   return filePath;
 };
 
-const hasRuleError = (ruleId, results) =>
+const hasRuleError = (results: ESLint.LintResult[], ruleId?: string) =>
   results.some((result) => result.messages.some((message) => message.ruleId === ruleId));
 
-const runTests = (ruleGroup, configTypes, cases) => {
+export interface RuleCase {
+  code: string;
+  expectedError?: string;
+  skipReason?: string;
+}
+
+export const runTests = (ruleGroup: string, configTypes: string[], cases: RuleCase[]) => {
   const configs = configTypes.map((configType) => ({
     eslint: configType === 'react' ? reactESLint : baseESLint,
     configType,
   }));
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const { eslint, configType } of configs) {
     describe(`${ruleGroup} rules`, () => {
       describe(`using ${configType} config`, () => {
@@ -39,19 +54,16 @@ const runTests = (ruleGroup, configTypes, cases) => {
           const testName = `should ${expectedResult} for ${testId}`;
           it(testName, async (t) => {
             if (skipReason) {
-              return t.skip(skipReason);
+              t.skip(skipReason);
+              return;
             }
             const filePath = setupCode(code, ruleGroup, testId);
             const results = await eslint.lintFiles(filePath);
-            const hasExpectedError = hasRuleError(expectedError, results);
+            const hasExpectedError = hasRuleError(results, expectedError);
             if (expectedError) {
-              assert.strictEqual(
-                hasExpectedError,
-                true,
-                `Expected error ${expectedError} for ${testId}`,
-              );
+              expect(hasExpectedError).toBeTruthy();
             } else {
-              assert.strictEqual(hasExpectedError, false, `Expected no errors for ${testId}`);
+              expect(hasExpectedError).toBeFalsy();
             }
           });
         }
@@ -59,5 +71,3 @@ const runTests = (ruleGroup, configTypes, cases) => {
     });
   }
 };
-
-module.exports = runTests;

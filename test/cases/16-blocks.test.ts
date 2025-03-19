@@ -1,5 +1,5 @@
-const outdent = require('outdent');
-const runTests = require('../utils/runner');
+import outdent from 'outdent';
+import { runTests } from '../utils/runner';
 
 /**
  * https://github.com/airbnb/javascript?tab=readme-ov-file#blocks

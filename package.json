@@ -34,7 +34,7 @@
     "lint:style:fix": "prettier --write .",
     "lint:types": "tsc",
     "prepare": "husky",
-    "test": "node --test test/cases/*"
+    "test": "vitest"
   },
   "commitlint": {
     "extends": "@commitlint/config-conventional"
@@ -71,7 +71,8 @@
     "prettier": "3.5.3",
     "prettier-plugin-packagejson": "^2.5.2",
     "semantic-release": "^24.1.0",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "vitest": "^3.0.9"
   },
   "peerDependencies": {
     "@stylistic/eslint-plugin": "^2.6.1",
