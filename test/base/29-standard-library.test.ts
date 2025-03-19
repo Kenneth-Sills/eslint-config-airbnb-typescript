@@ -1,7 +1,7 @@
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#standard-library
+ * https://github.com/airbnb/javascript/blob/master/README.md#standard-library
  */
 runTests(
   'standard-library',
@@ -10,12 +10,12 @@ runTests(
     {
       // 29.1
       code: `isNaN('1.2');`,
-      expectedError: 'no-restricted-globals',
+      ruleName: 'no-restricted-globals',
     },
     {
       // 29.2
       code: `isFinite('2e3');`,
-      expectedError: 'no-restricted-globals',
+      ruleName: 'no-restricted-globals',
     },
   ],
 );

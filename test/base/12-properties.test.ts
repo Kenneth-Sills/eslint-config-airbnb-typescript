@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#properties
+ * https://github.com/airbnb/javascript/blob/master/README.md#properties
  */
 runTests(
   'properties',
@@ -17,12 +17,12 @@ runTests(
         };
         const isJedi = luke['jedi'];
       `,
-      expectedError: '@typescript-eslint/dot-notation',
+      ruleName: '@typescript-eslint/dot-notation',
     },
     {
       // 12.3
       code: 'const binary = Math.pow(2, 10);',
-      expectedError: 'prefer-exponentiation-operator',
+      ruleName: 'prefer-exponentiation-operator',
     },
   ],
 );

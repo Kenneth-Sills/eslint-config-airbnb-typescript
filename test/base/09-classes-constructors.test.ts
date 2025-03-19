@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#classes--constructors
+ * https://github.com/airbnb/javascript/blob/master/README.md#classes--constructors
  */
 runTests(
   'classes-constructors',
@@ -19,7 +19,7 @@ runTests(
           }
         }
       `,
-      expectedError: '@typescript-eslint/no-useless-constructor',
+      ruleName: '@typescript-eslint/no-useless-constructor',
     },
     {
       // 9.6
@@ -29,7 +29,7 @@ runTests(
           bar() { return 2; }
         }
       `,
-      expectedError: 'no-dupe-class-members',
+      ruleName: 'no-dupe-class-members',
       skipReason: 'covered by typescript',
     },
     {
@@ -41,7 +41,7 @@ runTests(
           }
         }
       `,
-      expectedError: '@typescript-eslint/class-methods-use-this',
+      ruleName: '@typescript-eslint/class-methods-use-this',
     },
   ],
 );

@@ -18,7 +18,7 @@ runTests(
             return \`\${firstName} \${lastName}\`;
           }
         `,
-      expectedError: 'prefer-destructuring',
+      ruleName: 'prefer-destructuring',
     },
     {
       // 5.2
@@ -26,7 +26,7 @@ runTests(
           const arr = [1, 2, 3, 4];
           const first = arr[0];
         `,
-      expectedError: 'prefer-destructuring',
+      ruleName: 'prefer-destructuring',
       skipReason: 'Disabled for VariableDeclarator arrays in airbnb-base', // https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/es6.js#L125
     },
   ],

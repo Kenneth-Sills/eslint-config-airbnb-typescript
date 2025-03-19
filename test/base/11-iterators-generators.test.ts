@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#iterators-and-generators
+ * https://github.com/airbnb/javascript/blob/master/README.md#iterators-and-generators
  */
 runTests(
   'iterators-generators',
@@ -18,7 +18,7 @@ runTests(
         }
         sum === 15;
       `,
-      expectedError: 'no-restricted-syntax',
+      ruleName: 'no-restricted-syntax',
     },
     {
       // 11.1
@@ -28,7 +28,7 @@ runTests(
             return new FooIterator(this);
         }
       `,
-      expectedError: 'no-iterator',
+      ruleName: 'no-iterator',
     },
     {
       // 11.3
@@ -37,7 +37,7 @@ runTests(
           return true;
         }
       `,
-      expectedError: 'generator-star-spacing', // TODO: should use @stylistic/generator-star-spacing
+      ruleName: 'generator-star-spacing', // TODO: should use @stylistic/generator-star-spacing
     },
   ],
 );

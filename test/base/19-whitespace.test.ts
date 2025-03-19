@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#whitespace
+ * https://github.com/airbnb/javascript/blob/master/README.md#whitespace
  */
 runTests(
   'whitespace',
@@ -15,7 +15,7 @@ runTests(
             let name;
         }
       `,
-      expectedError: '@stylistic/indent',
+      ruleName: '@stylistic/indent',
     },
     {
       // 19.2
@@ -24,7 +24,7 @@ runTests(
           console.log('test');
         }
       `,
-      expectedError: '@stylistic/space-before-blocks',
+      ruleName: '@stylistic/space-before-blocks',
     },
     {
       // 19.3
@@ -33,12 +33,12 @@ runTests(
           fight ();
         }
       `,
-      expectedError: '@stylistic/keyword-spacing',
+      ruleName: '@stylistic/keyword-spacing',
     },
     {
       // 19.4
       code: 'const x=y+5;',
-      expectedError: '@stylistic/space-infix-ops',
+      ruleName: '@stylistic/space-infix-ops',
     },
     {
       // 19.5
@@ -46,18 +46,18 @@ runTests(
         import { es6 } from './AirbnbStyleGuide';
         export default es6;
       `,
-      expectedError: 'eol-last', // TODO: should use @stylistic/eol-last
+      ruleName: 'eol-last', // TODO: should use @stylistic/eol-last
     },
     {
       // 19.6
       code: `$('#items').find('.selected').highlight().end().find('.open').updateCount();`,
-      expectedError: 'newline-per-chained-call', // TODO: should use @stylistic/newline-per-chained-call
+      ruleName: 'newline-per-chained-call', // TODO: should use @stylistic/newline-per-chained-call
     },
     {
       // 19.6
       // No airbnb example for this rule
       code: 'foo. bar .baz . quz;',
-      expectedError: 'no-whitespace-before-property', // TODO: should use @stylistic/no-whitespace-before-property
+      ruleName: 'no-whitespace-before-property', // TODO: should use @stylistic/no-whitespace-before-property
     },
     {
       // 19.8
@@ -68,7 +68,7 @@ runTests(
 
         }
       `,
-      expectedError: 'padded-blocks', // TODO: should use @stylistic/padded-blocks
+      ruleName: 'padded-blocks', // TODO: should use @stylistic/padded-blocks
     },
     {
       // 19.9
@@ -101,7 +101,7 @@ runTests(
           }
         }
       `,
-      expectedError: 'no-multiple-empty-lines', // TODO: should use @stylistic/no-multiple-empty-lines
+      ruleName: 'no-multiple-empty-lines', // TODO: should use @stylistic/no-multiple-empty-lines
     },
     {
       // 19.10
@@ -110,7 +110,7 @@ runTests(
           return foo;
         }
       `,
-      expectedError: 'space-in-parens', // TODO: should use @stylistic/space-in-parens
+      ruleName: 'space-in-parens', // TODO: should use @stylistic/space-in-parens
     },
     {
       // 19.11
@@ -118,17 +118,17 @@ runTests(
         const foo = [ 1, 2, 3 ];
         console.log(foo[ 0 ]);
       `,
-      expectedError: 'array-bracket-spacing', // TODO: should use @stylistic/array-bracket-spacing
+      ruleName: 'array-bracket-spacing', // TODO: should use @stylistic/array-bracket-spacing
     },
     {
       // 19.12
       code: `const foo = {clark: 'kent'};`,
-      expectedError: '@stylistic/object-curly-spacing',
+      ruleName: '@stylistic/object-curly-spacing',
     },
     {
       // 19.13
       code: 'const foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;',
-      expectedError: 'max-len', // TODO: should use @stylistic/max-len
+      ruleName: 'max-len', // TODO: should use @stylistic/max-len
     },
     {
       // 19.14
@@ -136,33 +136,33 @@ runTests(
         function foo() {return true;}
         if (foo) { bar = 0;}
       `,
-      expectedError: 'block-spacing', // TODO: should use @stylistic/block-spacing
+      ruleName: 'block-spacing', // TODO: should use @stylistic/block-spacing
     },
     {
       // 19.15
       code: 'const foo = 1,bar = 2;',
-      expectedError: '@stylistic/comma-spacing',
+      ruleName: '@stylistic/comma-spacing',
     },
     {
       // 19.16
       code: 'obj[foo ]',
-      expectedError: 'computed-property-spacing', // TODO: should use @stylistic/computed-property-spacing
+      ruleName: 'computed-property-spacing', // TODO: should use @stylistic/computed-property-spacing
     },
     {
       // 19.17
       code: 'func ();',
-      expectedError: '@stylistic/func-call-spacing',
+      ruleName: '@stylistic/func-call-spacing',
     },
     {
       // 19.18
       code: 'const obj = { foo : 42 };',
-      expectedError: 'key-spacing', // TODO: should use @stylistic/key-spacing
+      ruleName: 'key-spacing', // TODO: should use @stylistic/key-spacing
     },
     {
       // 19.19
       // No airbnb example for this rule
       code: 'var foo = 0;     ',
-      expectedError: 'no-trailing-spaces', // TODO: should use @stylistic/no-trailing-spaces
+      ruleName: 'no-trailing-spaces', // TODO: should use @stylistic/no-trailing-spaces
     },
     {
       // 19.20
@@ -172,7 +172,7 @@ runTests(
 
         const y = 2;
       `,
-      expectedError: 'no-multiple-empty-lines', // TODO: should use @stylistic/no-multiple-empty-lines
+      ruleName: 'no-multiple-empty-lines', // TODO: should use @stylistic/no-multiple-empty-lines
     },
   ],
 );

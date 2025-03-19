@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#type-casting--coercion
+ * https://github.com/airbnb/javascript/blob/master/README.md#type-casting--coercion
  */
 runTests(
   'type-casting-coercion',
@@ -11,7 +11,7 @@ runTests(
     {
       // 22.2
       code: 'const totalScore = new String(this.reviewScore);',
-      expectedError: 'no-new-wrappers',
+      ruleName: 'no-new-wrappers',
     },
     {
       // 22.3
@@ -19,7 +19,7 @@ runTests(
         const inputValue = '4';
         const val = new Number(inputValue);
       `,
-      expectedError: 'no-new-wrappers',
+      ruleName: 'no-new-wrappers',
     },
     {
       // 22.3
@@ -27,7 +27,7 @@ runTests(
         const inputValue = '4';
         const val = parseInt(inputValue);
       `,
-      expectedError: 'radix',
+      ruleName: 'radix',
     },
     {
       // 22.6
@@ -35,7 +35,7 @@ runTests(
         const age = 0;
         const hasAge = new Boolean(age);
       `,
-      expectedError: 'no-new-wrappers',
+      ruleName: 'no-new-wrappers',
     },
   ],
 );

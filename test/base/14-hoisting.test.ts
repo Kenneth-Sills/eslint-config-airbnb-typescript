@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#hoisting
+ * https://github.com/airbnb/javascript/blob/master/README.md#hoisting
  */
 runTests(
   'hoisting',
@@ -14,7 +14,7 @@ runTests(
         console.log(a);
         var a = 10;
       `,
-      expectedError: '@typescript-eslint/no-use-before-define',
+      ruleName: '@typescript-eslint/no-use-before-define',
     },
   ],
 );

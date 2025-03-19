@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#modules
+ * https://github.com/airbnb/javascript/blob/master/README.md#modules
  */
 runTests(
   'modules',
@@ -14,7 +14,7 @@ runTests(
         import foo from 'foo';
         import { named1, named2 } from 'foo';
       `,
-      expectedError: 'import/no-duplicates', // airbnb docs list no-duplicate-imports incorrectly
+      ruleName: 'import/no-duplicates', // airbnb docs list no-duplicate-imports incorrectly
     },
     {
       // 10.5
@@ -22,12 +22,12 @@ runTests(
         let foo = 3;
         export { foo };
       `,
-      expectedError: 'import/no-mutable-exports',
+      ruleName: 'import/no-mutable-exports',
     },
     {
       // 10.6
       code: 'export function foo() {}',
-      expectedError: 'import/prefer-default-export',
+      ruleName: 'import/prefer-default-export',
     },
     {
       // 10.7
@@ -36,12 +36,12 @@ runTests(
         foo.init();
         import bar from 'bar';
       `,
-      expectedError: 'import/first',
+      ruleName: 'import/first',
     },
     {
       // 10.8
       code: `import {longNameA, longNameB, longNameC, longNameD, longNameE} from 'path';`,
-      expectedError: 'object-curly-newline', // TODO: should use @stylistic/object-curly-newline
+      ruleName: 'object-curly-newline', // TODO: should use @stylistic/object-curly-newline
     },
     {
       // 10.9
@@ -49,7 +49,7 @@ runTests(
         import fooSass from 'css!sass!foo.scss';
         import barCss from 'style!css!bar.css';
       `,
-      expectedError: 'import/no-webpack-loader-syntax',
+      ruleName: 'import/no-webpack-loader-syntax',
     },
     {
       // 10.10
@@ -58,7 +58,7 @@ runTests(
         import bar from './bar.jsx';
         import baz from './baz/index.jsx';
       `,
-      expectedError: 'import/extensions',
+      ruleName: 'import/extensions',
     },
   ],
 );

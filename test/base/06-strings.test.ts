@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#strings
+ * https://github.com/airbnb/javascript/blob/master/README.md#strings
  */
 runTests(
   'strings',
@@ -11,12 +11,12 @@ runTests(
     {
       // 6.1
       code: `const name = "Capt. Janeway";`,
-      expectedError: '@stylistic/quotes',
+      ruleName: '@stylistic/quotes',
     },
     {
       // 6.1
       code: `const name = \`Capt. Janeway\`;`,
-      expectedError: '@stylistic/quotes',
+      ruleName: '@stylistic/quotes',
     },
     {
       // 6.3
@@ -25,7 +25,7 @@ runTests(
             return 'How are you, ' + name + '?';
           }
         `,
-      expectedError: 'prefer-template',
+      ruleName: 'prefer-template',
     },
     {
       // 6.3
@@ -34,17 +34,17 @@ runTests(
             return \`How are you, \${ name }?\`;
           }
         `,
-      expectedError: 'template-curly-spacing',
+      ruleName: 'template-curly-spacing',
     },
     {
       // 6.4
       code: `eval('console.log("foo")');`,
-      expectedError: 'no-eval',
+      ruleName: 'no-eval',
     },
     {
       // 6.5
       code: `const foo = '\\'this\\' \\i\\s \\"quoted\\"';`,
-      expectedError: 'no-useless-escape',
+      ruleName: 'no-useless-escape',
     },
   ],
 );

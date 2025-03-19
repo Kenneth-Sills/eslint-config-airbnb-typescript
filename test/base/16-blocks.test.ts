@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#blocks
+ * https://github.com/airbnb/javascript/blob/master/README.md#blocks
  */
 runTests(
   'blocks',
@@ -14,7 +14,7 @@ runTests(
         if (test)
           return false;
       `,
-      expectedError: 'nonblock-statement-body-position', // TODO: should use @stylistic/nonblock-statement-body-position
+      ruleName: 'nonblock-statement-body-position', // TODO: should use @stylistic/nonblock-statement-body-position
     },
     {
       // 16.2
@@ -27,7 +27,7 @@ runTests(
           thing3();
         }
       `,
-      expectedError: '@stylistic/brace-style',
+      ruleName: '@stylistic/brace-style',
     },
     {
       // 16.3
@@ -40,7 +40,7 @@ runTests(
           }
         }
       `,
-      expectedError: 'no-else-return',
+      ruleName: 'no-else-return',
     },
   ],
 );

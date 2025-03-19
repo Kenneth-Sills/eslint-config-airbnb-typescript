@@ -16,12 +16,12 @@ runTests(
           return x * y;
         });
       `,
-      expectedError: 'prefer-arrow-callback',
+      ruleName: 'prefer-arrow-callback',
     },
     {
       // 8.1
       code: '(a)=>{}',
-      expectedError: 'arrow-spacing', // TODO: should use @stylistic/arrow-spacing
+      ruleName: 'arrow-spacing', // TODO: should use @stylistic/arrow-spacing
     },
     {
       // 8.2
@@ -31,7 +31,7 @@ runTests(
         }
         foo(() => bool = true);
       `,
-      expectedError: 'no-return-assign', // Not explicitly in docs, but describes the rule
+      ruleName: 'no-return-assign', // Not explicitly in docs, but describes the rule
     },
     {
       // 8.2
@@ -41,17 +41,17 @@ runTests(
           return true;
         }
       `,
-      expectedError: 'arrow-body-style',
+      ruleName: 'arrow-body-style',
     },
     {
       // 8.4
       code: '[1, 2, 3].map(x => x * x);',
-      expectedError: 'arrow-parens', // TODO: should use @stylistic/arrow-parens
+      ruleName: 'arrow-parens', // TODO: should use @stylistic/arrow-parens
     },
     {
       // 8.5
       code: 'const itemHeight = (item) => item.height <= 256 ? item.largeSize : item.smallSize;',
-      expectedError: 'no-confusing-arrow', // TODO: should use @stylistic/no-confusing-arrow
+      ruleName: 'no-confusing-arrow', // TODO: should use @stylistic/no-confusing-arrow
     },
     {
       // 8.5
@@ -59,7 +59,7 @@ runTests(
         (foo) =>
           bar;
       `,
-      expectedError: 'implicit-arrow-linebreak', // TODO: should use @stylistic/implicit-arrow-linebreak
+      ruleName: 'implicit-arrow-linebreak', // TODO: should use @stylistic/implicit-arrow-linebreak
     },
   ],
 );

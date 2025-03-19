@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#comparison-operators--equality
+ * https://github.com/airbnb/javascript/blob/master/README.md#comparison-operators--equality
  */
 runTests(
   'comparison-operators-equality',
@@ -11,7 +11,7 @@ runTests(
     {
       // 15.1
       code: `true == true;`,
-      expectedError: 'eqeqeq',
+      ruleName: 'eqeqeq',
     },
     {
       // 15.5
@@ -32,7 +32,7 @@ runTests(
             class C {}
         }
       `,
-      expectedError: 'no-case-declarations',
+      ruleName: 'no-case-declarations',
     },
     {
       // 15.6
@@ -41,17 +41,17 @@ runTests(
           ? "bar"
           : value1 > value2 ? "baz" : null;
       `,
-      expectedError: 'no-nested-ternary',
+      ruleName: 'no-nested-ternary',
     },
     {
       // 15.7
       code: 'const foo = a ? a : b;',
-      expectedError: 'no-unneeded-ternary',
+      ruleName: 'no-unneeded-ternary',
     },
     {
       // 15.8
       code: 'const foo = a && b < 0 || c > 0 || d + 1 === 0;',
-      expectedError: 'no-mixed-operators',
+      ruleName: 'no-mixed-operators',
     },
   ],
 );

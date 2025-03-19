@@ -11,7 +11,7 @@ runTests(
     {
       // 4.1
       code: 'const items = new Array();',
-      expectedError: '@typescript-eslint/no-array-constructor',
+      ruleName: '@typescript-eslint/no-array-constructor',
     },
     {
       // 4.7
@@ -20,7 +20,7 @@ runTests(
             const flatten = acc.concat(item);
           });
         `,
-      expectedError: 'array-callback-return',
+      ruleName: 'array-callback-return',
     },
   ],
 );

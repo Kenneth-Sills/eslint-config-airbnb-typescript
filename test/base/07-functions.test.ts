@@ -15,7 +15,7 @@ runTests(
           return true;
         }
       `,
-      expectedError: 'func-style',
+      ruleName: 'func-style',
       skipReason: 'Disabled in airbnb-base', // https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/style.js#L101
     },
     {
@@ -25,12 +25,12 @@ runTests(
           return true;
         }
       `,
-      expectedError: 'func-names',
+      ruleName: 'func-names',
     },
     {
       // 7.2
       code: 'const x = function () { return { y: 1 };}();',
-      expectedError: 'wrap-iife',
+      ruleName: 'wrap-iife',
     },
     {
       // 7.3
@@ -41,7 +41,7 @@ runTests(
             };
         }
       `,
-      expectedError: '@typescript-eslint/no-loop-func',
+      ruleName: '@typescript-eslint/no-loop-func',
     },
     {
       // 7.6
@@ -51,7 +51,7 @@ runTests(
           return args.join('');
         }
       `,
-      expectedError: 'prefer-rest-params',
+      ruleName: 'prefer-rest-params',
     },
     {
       // 7.9
@@ -60,27 +60,27 @@ runTests(
           return true;
         }
       `,
-      expectedError: '@typescript-eslint/default-param-last',
+      ruleName: '@typescript-eslint/default-param-last',
     },
     {
       // 7.10
       code: `const add = new Function('a', 'b', 'return a + b');`,
-      expectedError: '@typescript-eslint/no-implied-eval',
+      ruleName: '@typescript-eslint/no-implied-eval',
     },
     {
       // 7.11
       code: 'const f = function(){};',
-      expectedError: '@stylistic/space-before-function-paren',
+      ruleName: '@stylistic/space-before-function-paren',
     },
     {
       // 7.11
       code: 'const h = function() {};',
-      expectedError: '@stylistic/space-before-function-paren',
+      ruleName: '@stylistic/space-before-function-paren',
     },
     {
       // 7.11
       code: 'const g = function (){};',
-      expectedError: '@stylistic/space-before-blocks',
+      ruleName: '@stylistic/space-before-blocks',
     },
     {
       // 7.12
@@ -89,7 +89,7 @@ runTests(
           obj.key = 1;
         }
       `,
-      expectedError: 'no-param-reassign',
+      ruleName: 'no-param-reassign',
     },
     {
       // 7.13
@@ -99,7 +99,7 @@ runTests(
           return true;
         }
       `,
-      expectedError: 'no-param-reassign',
+      ruleName: 'no-param-reassign',
     },
     {
       // 7.14
@@ -107,7 +107,7 @@ runTests(
         const x = [1, 2, 3, 4, 5];
         console.log.apply(console, x);
       `,
-      expectedError: 'prefer-spread',
+      ruleName: 'prefer-spread',
     },
     {
       // 7.15
@@ -118,7 +118,7 @@ runTests(
           return true;
         }
       `,
-      expectedError: 'function-paren-newline',
+      ruleName: 'function-paren-newline',
     },
   ],
 );

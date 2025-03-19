@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#commas
+ * https://github.com/airbnb/javascript/blob/master/README.md#commas
  */
 runTests(
   'commas',
@@ -17,7 +17,7 @@ runTests(
           , aTime
         ];
       `,
-      expectedError: 'comma-style', // TODO: should use @stylistic/comma-style
+      ruleName: 'comma-style', // TODO: should use @stylistic/comma-style
     },
     {
       // 20.2
@@ -27,7 +27,7 @@ runTests(
           lastName: 'Scully'
         };
       `,
-      expectedError: '@stylistic/comma-dangle',
+      ruleName: '@stylistic/comma-dangle',
     },
     {
       // 20.2
@@ -37,7 +37,7 @@ runTests(
           'Superman'
         ];
       `,
-      expectedError: '@stylistic/comma-dangle',
+      ruleName: '@stylistic/comma-dangle',
     },
     {
       // 20.2
@@ -50,7 +50,7 @@ runTests(
           // does nothing
         }
       `,
-      expectedError: '@stylistic/comma-dangle',
+      ruleName: '@stylistic/comma-dangle',
     },
     {
       // 20.2
@@ -61,7 +61,7 @@ runTests(
           inventorOf
         );
       `,
-      expectedError: '@stylistic/comma-dangle',
+      ruleName: '@stylistic/comma-dangle',
     },
   ],
 );

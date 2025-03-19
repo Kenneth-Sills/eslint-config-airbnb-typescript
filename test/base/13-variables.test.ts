@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#variables
+ * https://github.com/airbnb/javascript/blob/master/README.md#variables
  */
 runTests(
   'variables',
@@ -11,7 +11,7 @@ runTests(
     {
       // 13.1
       code: 'superPower = new SuperPower();',
-      expectedError: 'no-undef',
+      ruleName: 'no-undef',
       skipReason: 'covered by typescript',
     },
     {
@@ -21,12 +21,12 @@ runTests(
           goSportsTeam = true,
           dragonball = 'z';
       `,
-      expectedError: 'one-var',
+      ruleName: 'one-var',
     },
     {
       // 13.5
       code: 'let a = b = c = 1;',
-      expectedError: 'no-multi-assign',
+      ruleName: 'no-multi-assign',
     },
     {
       // 13.6
@@ -34,7 +34,7 @@ runTests(
         let num = 1;
         num++;
       `,
-      expectedError: 'no-plusplus',
+      ruleName: 'no-plusplus',
     },
     {
       // 13.7
@@ -42,14 +42,14 @@ runTests(
         const foo =
           superLongLongLongLongLongLongLongLongFunctionName();
       `,
-      expectedError: 'operator-linebreak',
+      ruleName: 'operator-linebreak',
     },
     {
       // 13.8
       code: outdent`
         const some_unused_var = 42;
       `,
-      expectedError: '@typescript-eslint/no-unused-vars',
+      ruleName: '@typescript-eslint/no-unused-vars',
     },
   ],
 );

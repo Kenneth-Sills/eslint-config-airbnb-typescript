@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#naming-conventions
+ * https://github.com/airbnb/javascript/blob/master/README.md#naming-conventions
  */
 runTests(
   'naming-conventions',
@@ -14,7 +14,7 @@ runTests(
         function q() {
           // ...
         }`,
-      expectedError: 'id-length',
+      ruleName: 'id-length',
       skipReason: 'Removed in airbnb-base', // https://github.com/airbnb/javascript/pull/569
     },
     {
@@ -24,7 +24,7 @@ runTests(
         const this_is_my_object = {};
         function c() {}
       `,
-      expectedError: '@typescript-eslint/naming-convention',
+      ruleName: '@typescript-eslint/naming-convention',
     },
     {
       // 23.3
@@ -37,7 +37,7 @@ runTests(
           name: 'nope',
         });
       `,
-      expectedError: 'new-cap',
+      ruleName: 'new-cap',
     },
     {
       // 23.4
@@ -46,7 +46,7 @@ runTests(
         this.firstName_ = 'Panda';
         this._firstName = 'Panda';
       `,
-      expectedError: 'no-underscore-dangle',
+      ruleName: 'no-underscore-dangle',
     },
   ],
 );

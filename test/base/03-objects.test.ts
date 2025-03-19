@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#objects
+ * https://github.com/airbnb/javascript/blob/master/README.md#objects
  */
 runTests(
   'objects',
@@ -11,7 +11,7 @@ runTests(
     {
       // 3.1
       code: 'const item = new Object();',
-      expectedError: 'no-new-object',
+      ruleName: 'no-new-object',
     },
     {
       // 3.3
@@ -24,7 +24,7 @@ runTests(
             },
           };
         `,
-      expectedError: 'object-shorthand',
+      ruleName: 'object-shorthand',
     },
     {
       // 3.4
@@ -34,7 +34,7 @@ runTests(
             lukeSkywalker: lukeSkywalker,
           };
         `,
-      expectedError: 'object-shorthand',
+      ruleName: 'object-shorthand',
     },
     {
       // 3.6
@@ -45,14 +45,14 @@ runTests(
             'data-blah': 5,
           };
         `,
-      expectedError: 'quote-props',
+      ruleName: 'quote-props',
     },
     {
       // 3.7
       code: outdent`
             object.hasOwnProperty(key);
         `,
-      expectedError: 'no-prototype-builtins',
+      ruleName: 'no-prototype-builtins',
     },
     {
       // 3.8
@@ -60,7 +60,7 @@ runTests(
       code: outdent`
           Object.assign({}, {foo: 'bar'});
         `,
-      expectedError: 'prefer-object-spread',
+      ruleName: 'prefer-object-spread',
     },
   ],
 );

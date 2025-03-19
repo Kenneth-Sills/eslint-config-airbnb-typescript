@@ -1,7 +1,7 @@
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#semicolons
+ * https://github.com/airbnb/javascript/blob/master/README.md#semicolons
  */
 runTests(
   'semicolons',
@@ -10,7 +10,7 @@ runTests(
     {
       // 21.1
       code: 'const luke = {}',
-      expectedError: '@stylistic/semi',
+      ruleName: '@stylistic/semi',
     },
   ],
 );

@@ -1,6 +1,6 @@
 {
   "include": ["**/*", "**/.*"],
-  "exclude": ["test/temp/**/*.ts"],
+  "exclude": ["test/temp/**/*.*"],
   "compilerOptions": {
     "target": "es2021",
     "module": "commonjs",

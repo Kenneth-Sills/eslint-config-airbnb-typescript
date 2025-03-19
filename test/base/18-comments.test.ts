@@ -2,7 +2,7 @@ import outdent from 'outdent';
 import { runTests } from '../utils/runner';
 
 /**
- * https://github.com/airbnb/javascript?tab=readme-ov-file#comments
+ * https://github.com/airbnb/javascript/blob/master/README.md#comments
  */
 runTests(
   'comments',
@@ -14,7 +14,7 @@ runTests(
         //is current tab
         const active = true;
       `,
-      expectedError: 'spaced-comment', // TODO: should use @stylistic/spaced-comment
+      ruleName: 'spaced-comment', // TODO: should use @stylistic/spaced-comment
     },
   ],
 );
