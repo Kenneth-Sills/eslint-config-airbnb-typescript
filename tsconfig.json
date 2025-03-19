@@ -1,5 +1,6 @@
 {
   "include": ["**/*", "**/.*"],
+  "exclude": ["test/temp/**/*.ts"],
   "compilerOptions": {
     "target": "es2021",
     "module": "commonjs",
@@ -7,6 +8,7 @@
     "checkJs": true,
     "noEmit": true,
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   }
 }
