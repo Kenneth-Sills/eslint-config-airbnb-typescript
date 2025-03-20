@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { describe, it, expect } from 'vitest';
 import { ESLint } from 'eslint';
+import outdent from 'outdent';
 import { baseConfig, reactConfig } from './test-eslint-configs';
 
 export type ConfigType = 'base' | 'react';
@@ -49,6 +50,24 @@ const setupCode = (code: string, ruleGroup: string, testId: string, configType: 
 const hasRuleError = (results: ESLint.LintResult[], ruleId?: string) =>
   results.some((result) => result.messages.some((message) => message.ruleId === ruleId));
 
+const generateExpectMessage = (results: ESLint.LintResult[]) => {
+  const messages: string[] = [];
+  const ruleIds: string[] = [];
+  results.forEach((result) => {
+    result.messages.forEach((message) => {
+      if (message.ruleId) {
+        ruleIds.push(message.ruleId);
+      } else {
+        messages.push(message.message);
+      }
+    });
+  });
+  return outdent`
+    Matched rules: ${ruleIds.length ? ruleIds.join('; ') : 'none'}
+    Other messages: ${messages.length ? messages.join('; ') : 'none'}
+  `;
+};
+
 const assembleTestCases = (
   cases: RuleCase[],
   ruleGroup: string,
@@ -80,7 +99,8 @@ const runTestCases = (testCases: TestCase[]) => {
       const filePath = setupCode(code, ruleGroup, id, configType);
       const results = await eslint.lintFiles(filePath);
       const hasExpectedError = hasRuleError(results, ruleName);
-      expect(hasExpectedError).toBe(!expectPass);
+      const message = generateExpectMessage(results);
+      expect(hasExpectedError, message).toBe(!expectPass);
     },
   );
 };
