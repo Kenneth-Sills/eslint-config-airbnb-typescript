@@ -37,7 +37,7 @@ const reactESLint = new ESLint(reactOptions as never);
 
 const setupCode = (code: string, ruleGroup: string, testId: string, configType: string) => {
   const extension = configType === 'react' ? '.tsx' : '.ts';
-  const filePath = `test/temp/${ruleGroup}/${testId}-${configType}${extension}`;
+  const filePath = `./test/temp/${ruleGroup}/${testId}-${configType}${extension}`;
   const dir = path.dirname(filePath);
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
