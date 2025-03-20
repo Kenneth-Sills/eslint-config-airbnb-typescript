@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import { ESLint } from 'eslint';
+import { FlatESLint } from 'eslint/use-at-your-own-risk';
 import outdent from 'outdent';
 import { baseConfig, reactConfig } from './test-eslint-configs';
 
@@ -22,18 +23,16 @@ interface TestCase extends RuleCase {
   configType: ConfigType;
 }
 
-const baseOptions: ESLint.LegacyOptions = {
+const baseESLint = new ESLint({
   baseConfig,
   useEslintrc: false,
-};
-
-const reactOptions: ESLint.LegacyOptions = {
+});
+const reactESLint = new ESLint({
   baseConfig: reactConfig,
   useEslintrc: false,
-};
-
-const baseESLint = new ESLint(baseOptions as never);
-const reactESLint = new ESLint(reactOptions as never);
+});
+const baseFlatESLint = new FlatESLint({ overrideConfigFile: './test/utils/base.config.mjs' });
+const reactFlatESLint = new FlatESLint({ overrideConfigFile: './test/utils/react.config.mjs' });
 
 const setupCode = (code: string, ruleGroup: string, testId: string, configType: string) => {
   const extension = configType === 'react' ? '.tsx' : '.ts';
@@ -106,15 +105,26 @@ const runTestCases = (testCases: TestCase[]) => {
 };
 
 export const runTests = (ruleGroup: string, configTypes: ConfigType[], ruleCases: RuleCase[]) => {
-  const configs = configTypes.map((configType) => ({
-    eslint: configType === 'react' ? reactESLint : baseESLint,
-    configType,
-  }));
+  const configs = configTypes.flatMap((configType) => [
+    {
+      eslint: configType === 'react' ? reactESLint : baseESLint,
+      configType,
+      eslintType: 'legacy',
+    },
+    {
+      eslint: configType === 'react' ? reactFlatESLint : baseFlatESLint,
+      configType,
+      eslintType: 'flat',
+    },
+  ]);
 
   describe(`${ruleGroup} rules`, () => {
-    describe.for(configs)(`using $configType config`, ({ eslint, configType }) => {
-      const testCases = assembleTestCases(ruleCases, ruleGroup, eslint, configType);
-      runTestCases(testCases);
-    });
+    describe.for(configs)(
+      `using $configType config on $eslintType ESLint`,
+      ({ eslint, configType }) => {
+        const testCases = assembleTestCases(ruleCases, ruleGroup, eslint, configType);
+        runTestCases(testCases);
+      },
+    );
   });
 };
