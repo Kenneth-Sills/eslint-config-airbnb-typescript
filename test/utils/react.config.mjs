@@ -1,8 +1,7 @@
+// @ts-nocheck
 import { FlatCompat } from '@eslint/eslintrc';
 
-const compat = new FlatCompat({
-  // baseDirectory: import.meta.dirname,
-});
+const compat = new FlatCompat();
 
 export default [
   ...compat.extends('airbnb'),

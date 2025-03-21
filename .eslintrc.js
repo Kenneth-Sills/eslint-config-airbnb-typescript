@@ -4,4 +4,10 @@ module.exports = {
     project: './tsconfig.json',
   },
   ignorePatterns: ['test/temp'],
+  rules: {
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: ['**/*.config.*', 'test/**/*'] },
+    ],
+  },
 };
