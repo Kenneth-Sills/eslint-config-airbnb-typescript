@@ -11,6 +11,7 @@ runTests(
       // 21.1
       code: 'const luke = {}',
       ruleName: '@stylistic/semi',
+      excludedRules: ['semi'],
     },
   ],
 );

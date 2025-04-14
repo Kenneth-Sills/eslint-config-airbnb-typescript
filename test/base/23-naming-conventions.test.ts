@@ -25,6 +25,7 @@ runTests(
         function c() {}
       `,
       ruleName: '@typescript-eslint/naming-convention',
+      excludedRules: ['camelcase'],
     },
     {
       // 23.3

@@ -12,11 +12,13 @@ runTests(
       // 6.1
       code: `const name = "Capt. Janeway";`,
       ruleName: '@stylistic/quotes',
+      excludedRules: ['quotes'],
     },
     {
       // 6.1
       code: `const name = \`Capt. Janeway\`;`,
       ruleName: '@stylistic/quotes',
+      excludedRules: ['quotes'],
     },
     {
       // 6.3

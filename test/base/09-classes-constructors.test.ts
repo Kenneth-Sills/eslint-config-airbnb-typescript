@@ -20,6 +20,7 @@ runTests(
         }
       `,
       ruleName: '@typescript-eslint/no-useless-constructor',
+      excludedRules: ['no-useless-constructor'],
     },
     {
       // 9.6
@@ -42,6 +43,7 @@ runTests(
         }
       `,
       ruleName: '@typescript-eslint/class-methods-use-this',
+      excludedRules: ['class-methods-use-this'],
     },
   ],
 );

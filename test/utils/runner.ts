@@ -11,6 +11,7 @@ export type ConfigType = 'base' | 'react';
 export interface RuleCase {
   code: string;
   ruleName: string;
+  excludedRules?: string[];
   skipReason?: string;
   expectPass?: boolean;
 }
@@ -90,7 +91,10 @@ const assembleTestCases = (
 const runTestCases = (testCases: TestCase[]) => {
   it.for(testCases)(
     'should $expectedResult for $id',
-    async ({ code, configType, eslint, expectPass, ruleName, id, ruleGroup, skipReason }, t) => {
+    async (
+      { code, configType, eslint, expectPass, ruleName, id, ruleGroup, skipReason, excludedRules },
+      t,
+    ) => {
       if (skipReason) {
         t.skip(skipReason);
         return;
@@ -98,8 +102,11 @@ const runTestCases = (testCases: TestCase[]) => {
       const filePath = setupCode(code, ruleGroup, id, configType);
       const results = await eslint.lintFiles(filePath);
       const hasExpectedError = hasRuleError(results, ruleName);
+      const hasExcludedRuleError =
+        excludedRules?.some((excludedRule) => hasRuleError(results, excludedRule)) ?? false;
       const message = generateExpectMessage(results);
       expect(hasExpectedError, message).toBe(!expectPass);
+      expect(hasExcludedRuleError, message).toBe(false);
     },
   );
 };

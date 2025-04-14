@@ -28,6 +28,7 @@ runTests(
         }
       `,
       ruleName: '@stylistic/brace-style',
+      excludedRules: ['brace-style'],
     },
     {
       // 16.3

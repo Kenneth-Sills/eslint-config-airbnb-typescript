@@ -50,6 +50,7 @@ runTests(
         const some_unused_var = 42;
       `,
       ruleName: '@typescript-eslint/no-unused-vars',
+      excludedRules: ['no-unused-vars'],
     },
   ],
 );

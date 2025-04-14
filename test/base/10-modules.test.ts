@@ -57,6 +57,8 @@ runTests(
         import foo from './foo.js';
         import bar from './bar.jsx';
         import baz from './baz/index.jsx';
+        import baz from './baz/index.ts';
+        import baz from './baz/index.tsx';
       `,
       ruleName: 'import/extensions',
     },

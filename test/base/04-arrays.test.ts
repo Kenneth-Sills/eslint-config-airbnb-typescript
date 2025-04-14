@@ -12,6 +12,7 @@ runTests(
       // 4.1
       code: 'const items = new Array();',
       ruleName: '@typescript-eslint/no-array-constructor',
+      excludedRules: ['no-array-constructor'],
     },
     {
       // 4.7

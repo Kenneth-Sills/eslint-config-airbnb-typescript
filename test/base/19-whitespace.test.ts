@@ -16,6 +16,7 @@ runTests(
         }
       `,
       ruleName: '@stylistic/indent',
+      excludedRules: ['indent'],
     },
     {
       // 19.2
@@ -25,6 +26,7 @@ runTests(
         }
       `,
       ruleName: '@stylistic/space-before-blocks',
+      excludedRules: ['space-before-blocks'],
     },
     {
       // 19.3
@@ -34,11 +36,13 @@ runTests(
         }
       `,
       ruleName: '@stylistic/keyword-spacing',
+      excludedRules: ['keyword-spacing'],
     },
     {
       // 19.4
       code: 'const x=y+5;',
       ruleName: '@stylistic/space-infix-ops',
+      excludedRules: ['space-infix-ops'],
     },
     {
       // 19.5
@@ -124,6 +128,7 @@ runTests(
       // 19.12
       code: `const foo = {clark: 'kent'};`,
       ruleName: '@stylistic/object-curly-spacing',
+      excludedRules: ['object-curly-spacing'],
     },
     {
       // 19.13
@@ -142,6 +147,7 @@ runTests(
       // 19.15
       code: 'const foo = 1,bar = 2;',
       ruleName: '@stylistic/comma-spacing',
+      excludedRules: ['comma-spacing'],
     },
     {
       // 19.16
@@ -152,6 +158,7 @@ runTests(
       // 19.17
       code: 'func ();',
       ruleName: '@stylistic/func-call-spacing',
+      excludedRules: ['func-call-spacing'],
     },
     {
       // 19.18

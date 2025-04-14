@@ -15,6 +15,7 @@ runTests(
         var a = 10;
       `,
       ruleName: '@typescript-eslint/no-use-before-define',
+      excludedRules: ['no-use-before-define'],
     },
   ],
 );

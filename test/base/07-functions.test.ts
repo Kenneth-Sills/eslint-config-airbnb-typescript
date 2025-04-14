@@ -42,6 +42,7 @@ runTests(
         }
       `,
       ruleName: '@typescript-eslint/no-loop-func',
+      excludedRules: ['no-loop-func'],
     },
     {
       // 7.6
@@ -61,26 +62,31 @@ runTests(
         }
       `,
       ruleName: '@typescript-eslint/default-param-last',
+      excludedRules: ['default-param-last'],
     },
     {
       // 7.10
       code: `const add = new Function('a', 'b', 'return a + b');`,
       ruleName: '@typescript-eslint/no-implied-eval',
+      excludedRules: ['no-implied-eval'],
     },
     {
       // 7.11
       code: 'const f = function(){};',
       ruleName: '@stylistic/space-before-function-paren',
+      excludedRules: ['space-before-function-paren'],
     },
     {
       // 7.11
       code: 'const h = function() {};',
       ruleName: '@stylistic/space-before-function-paren',
+      excludedRules: ['space-before-function-paren'],
     },
     {
       // 7.11
       code: 'const g = function (){};',
       ruleName: '@stylistic/space-before-blocks',
+      excludedRules: ['space-before-blocks'],
     },
     {
       // 7.12

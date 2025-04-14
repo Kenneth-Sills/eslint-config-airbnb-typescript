@@ -28,6 +28,7 @@ runTests(
         };
       `,
       ruleName: '@stylistic/comma-dangle',
+      excludedRules: ['comma-dangle'],
     },
     {
       // 20.2
@@ -38,6 +39,7 @@ runTests(
         ];
       `,
       ruleName: '@stylistic/comma-dangle',
+      excludedRules: ['comma-dangle'],
     },
     {
       // 20.2
@@ -51,6 +53,7 @@ runTests(
         }
       `,
       ruleName: '@stylistic/comma-dangle',
+      excludedRules: ['comma-dangle'],
     },
     {
       // 20.2
@@ -62,6 +65,7 @@ runTests(
         );
       `,
       ruleName: '@stylistic/comma-dangle',
+      excludedRules: ['comma-dangle'],
     },
   ],
 );

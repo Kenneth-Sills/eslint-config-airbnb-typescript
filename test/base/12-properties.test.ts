@@ -18,6 +18,7 @@ runTests(
         const isJedi = luke['jedi'];
       `,
       ruleName: '@typescript-eslint/dot-notation',
+      excludedRules: ['dot-notation'],
     },
     {
       // 12.3
