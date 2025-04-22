@@ -3,4 +3,11 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.json',
   },
+  ignorePatterns: ['test/temp'],
+  rules: {
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: ['**/*.config.*', 'test/**/*'] },
+    ],
+  },
 };
