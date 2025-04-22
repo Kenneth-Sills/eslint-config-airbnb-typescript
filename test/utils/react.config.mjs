@@ -1,15 +1,12 @@
-// @ts-nocheck
-import { FlatCompat } from '@eslint/eslintrc';
-
-const compat = new FlatCompat();
+/* eslint-disable import/extensions */
+import airbnbTs from '../../index.js';
 
 export default [
-  ...compat.extends('airbnb'),
-  ...compat.extends('./index.js'),
+  ...airbnbTs.configs.react,
   {
     languageOptions: {
       parserOptions: {
-        disallowAutomaticSingleRunInference: true,
+        disallowAutomaticSingleRunInference: true, // Disable TS caching so it detects files generated inside tests
         project: 'test/utils/tsconfig.test.json',
       },
     },
